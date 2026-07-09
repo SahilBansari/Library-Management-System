@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Premium LMS Palette - Browns, Creams, Whites */
+    --espresso: 11 27% 23%; /* #4B2E2B - Deep brown for primary text */
+    --caramel: 28 46% 54%; /* #C08552 - Rich caramel for buttons and accents */
+    --latte: 33 30% 80%; /* Soft tan for borders/secondary */
+    --cream: 40 33% 96%; /* #FAF6F0 - Warm cream background */
+    
+    /* Standard shadcn variables mapped to warm tones */
+    --background: 40 33% 96%;
+    --foreground: 11 27% 23%;
+    --card: 0 0% 100%;
+    --card-foreground: 11 27% 23%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 11 27% 23%;
+    --primary: 28 46% 54%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 33 30% 89%;
+    --secondary-foreground: 11 27% 23%;
+    --muted: 33 30% 92%;
+    --muted-foreground: 25 20% 45%;
+    --accent: 33 30% 92%;
+    --accent-foreground: 11 27% 23%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 33 30% 88%;
+    --input: 33 30% 88%;
+    --ring: 28 46% 54%;
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+  }
+  body {
+    @apply bg-background text-foreground antialiased bg-warm-gradient;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Warm Glass Component - Espresso/Caramel tinted shadows */
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-xl border border-[#C08552]/10 rounded-2xl;
+    box-shadow: 0 8px 32px -4px rgba(75, 46, 43, 0.06), 0 0 1px 1px rgba(255, 255, 255, 0.9) inset;
+  }
+  
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 ease-out;
+  }
+  
+  .glass-card-hover:hover {
+    @apply -translate-y-1;
+    box-shadow: 0 12px 40px -8px rgba(75, 46, 43, 0.12), 0 0 1px 1px rgba(255, 255, 255, 1) inset;
+  }
+  
+  /* Glass Navbar */
+  .glass-navbar {
+    @apply sticky top-0 z-50 bg-[#FAF6F0]/80 backdrop-blur-md border-b border-[#C08552]/15;
+  }
+  
+  /* Background Warm Gradient */
+  .bg-warm-gradient {
+    background: linear-gradient(135deg, #FAF6F0 0%, #FFFFFF 50%, #F5EFE6 100%);
+  }
+  
+  /* Primary Button (Caramel) */
+  .btn-primary {
+    @apply bg-[#C08552] text-white font-semibold px-6 py-2.5 rounded-xl transition-all duration-200 shadow-sm shadow-[#C08552]/20;
+  }
+  
+  .btn-primary:hover {
+    @apply bg-[#A66E3E] scale-[1.02] shadow-md shadow-[#C08552]/30;
+  }
+  
+  /* Secondary Button (Espresso) */
+  .btn-secondary {
+    @apply bg-[#4B2E2B] text-white font-semibold px-6 py-2.5 rounded-xl transition-all duration-200 shadow-sm shadow-[#4B2E2B]/20;
+  }
+  
+  .btn-secondary:hover {
+    @apply bg-[#36211F] scale-[1.02] shadow-md shadow-[#4B2E2B]/30;
+  }
+  
+  /* Warm Status Badges */
+  .badge-available, .badge-ready {
+    @apply bg-[#C08552]/10 text-[#A66E3E] px-3 py-1 rounded-full text-sm font-semibold border border-[#C08552]/20;
+  }
+  
+  .badge-pending {
+    @apply bg-[#4B2E2B]/10 text-[#4B2E2B] px-3 py-1 rounded-full text-sm font-semibold border border-[#4B2E2B]/20;
+  }
+  
+  .badge-checked-out {
+    @apply bg-[#F5EFE6] text-[#6B5A58] px-3 py-1 rounded-full text-sm font-semibold border border-[#E8DCD0];
+  }
+  
+  /* Scrollbar - Warm Tones */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#DCCBBF] rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#C08552];
+  }
+}
